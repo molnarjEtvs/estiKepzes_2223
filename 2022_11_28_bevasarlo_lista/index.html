@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bevásárlólista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> 
+</head>
+<body>
+    
+    <header class="container-fluid bg-success text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="py-5">
+                        <h1>Bevásárlólista</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div>
+                    <form>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="tetel_neve">Tétel neve</label>
+                                <input type="text" name="tetel_neve" id="tetel_neve" placeholder="pl.: Kenyér" class="form-control">
+                            </div>
+                            <div class="col-3">
+                                <label for="db">Darabszám (db):</label>
+                                <input type="number" name="db" id="db" class="form-control" placeholder="pl.: 2">
+                            </div>
+                            <div class="col-3">
+                                <label for="db_ar">Tétel db ár (Ft):</label>
+                                <input type="number" name="db_ar" id="db_ar" class="form-control" placeholder="pl.: 500">
+                            </div>
+                        </div>
+                        <div class="mt-4 d-grid">
+                            <button type="button" class="btn btn-primary" onclick="tetelHozzaAdasa();">Hozzáad --></button>
+                        </div>
+                        <div class="mt-2 d-grid">
+                            <button type="button" class="btn btn-danger">Lista törlése --></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div>
+                    <h2>Bevásárló listám:</h2>
+                    <table class="table table-warning table-sm table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Tétel neve</th>
+                                <th>ár/db</th>
+                                <th>db</th>
+                                <th>ár</th>
+                                <th>törlés</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTBody">
+
+
+
+                            
+
+
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-end fw-bold">Összesen:</td>
+                                <td colspan="2" class="text-start fw-bold"><span id="vegosszeg">0</span> Ft</td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
