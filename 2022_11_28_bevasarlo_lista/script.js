@@ -1,15 +1,17 @@
 var seged = 0;
 var arak = [];
 var vegosszeg = 0;
+var myVegosszeg = document.getElementById("vegosszeg");
 function tetelHozzaAdasa(){
     vegosszeg = 0;
     var tetel_neve = document.getElementById("tetel_neve").value;
     var db = parseInt(document.getElementById("db").value);
     var tetelDbAr = parseInt(document.getElementById("db_ar").value);
     var myTBody = document.getElementById("myTBody");
-    var myVegosszeg = document.getElementById("vegosszeg");
+    
 
     var myTr = document.createElement("tr");//<tr></tr>
+    myTr.setAttribute("id","sor_"+seged);
     var osszAr = (tetelDbAr*db);
     arak[seged] = osszAr;
     var myArr = [tetel_neve,tetelDbAr,db,osszAr];
@@ -23,6 +25,7 @@ function tetelHozzaAdasa(){
             var myButton = document.createElement("button");
             var myButtonText = document.createTextNode("törlés");
             myButton.setAttribute("class","btn btn-danger");
+            myButton.setAttribute("onclick","sorTorles("+seged+");");
             myButton.appendChild(myButtonText);
             myTd.appendChild(myButton);
         }
@@ -76,4 +79,11 @@ function tetelHozzaAdasa(){
 }
 function osszeszamol(item) {
     vegosszeg += item;
+}
+function sorTorles(sorszam){
+    vegosszeg = 0;
+    document.getElementById("sor_"+sorszam).remove();
+    arak[sorszam] = 0;
+    arak.forEach(osszeszamol);
+    myVegosszeg.innerHTML = vegosszeg;
 }
